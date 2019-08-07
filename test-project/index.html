@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>React With Me</title>
+</head>
+
+	<body>
+		<div id="app"></div>
+	</body>
+
+	<script src="node_modules/react/umd/react.development.js"></script>
+	<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+	<script>
+		let myButton=React.createElement("div", null, React.createElement("h1", null, "Hello World"),
+	   		React.createElement("p", null, "Some paragraph text here!"),
+	    	React.createElement("button", null, "Click me!"));
+	    	ReactDOM.render(myButton, document.getElementById('app'));
+	</script>
+</html>
+
+
+
+
+
+<!--  How To Do The Above
+
+Install:
+	npm install -g create-react-app@2.0.3
+	# mac/linux users
+	sudo npm install -g create-react-app@2.0.3
+
+Make:
+	mkdir test-project
+	cd test-project
+	npm init -y
+	npm install --save react react-dom	
+
+Use:
+	React.createElement()
+		The createElement() method returns the foundational building block of the React library: the React "Element". In essence, 	an Element is a piece of UI - akin to an HTML DOM node - but engineered to fit within React's larger ecosystem. Namely, Elements are almost always the product of a React "Component".
+
+		It takes three arguments: type, props, children
+
+
+	React.Component
+		A "Component" in React is essentially a configurable, and resuable peice of UI. They can be as simple as a function you write that returns a React "Element", or - optionally - a class you define that extends the React.Component The latter provides the Component an internal "state", and where the React library really starts to take off. We will explore this class, and the idea of "stateful-components" later on in this section.
+
+	ReactDOM
+		React on its own is designed to be just a library for building User Interfaces, and can be plugged into various platforms (ie. web, mobile applications, desktop applications, etc). To build React apps for the web, you will need the ReactDOM library you see listed here. ReactDOM contains one primary function for us to use:
+
+	ReactDOM.render()
+		This method is where we plug our React application into an HTML document. It takes two main arguments: a React Element, and a pointer to an HTML DOM node where your React Element is to be rendered.
+ -->

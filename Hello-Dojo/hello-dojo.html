@@ -1,0 +1,81 @@
+
+<!-- db.servers.aggregate([{$group:{_id: "$Server" , all_ports: { $addToSet: "$Port" }}},{ "$sort": {  "Server": 1 } }]) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello Dojo</title>
+</head>
+<body>
+	<div id="app"></div>
+
+	<select id="mySelect" onchange="myFunction()">
+	  <option value="Audi">Audi</option>
+	  <option value="BMW">BMW</option>
+	  <option value="Mercedes">Mercedes</option>
+	  <option value="Volvo">Volvo</option>
+	</select>
+
+
+	<select id="demo"></select>
+
+</body>
+
+
+	<script src="node_modules/react/umd/react.development.js"></script>
+	<script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+
+
+
+
+	<script>
+		let one = React.createElement("h1",null,"Hello Dojo!");
+		let two = React.createElement("h3",null,"Things I Need To Do");
+		let three = React.createElement("ul",null, React.createElement("li",null,"learn react"),React.createElement("li",null,"A"),React.createElement("li",null,"B"),React.createElement("li",null,"C"));
+
+		let html = React.createElement("div",null,one,two,three);
+		ReactDOM.render(html, document.getElementById('app'))
+	</script>
+
+
+
+	<script>
+		option_val = document.getElementById("mySelect").value
+
+		for(var i=0; i<=car_options[option_val].length-1; i++){
+			var x = document.getElementById("demo");
+			var option = document.createElement("option");
+			option.text = car_options[option_val][i]
+			x.add(option);
+		}
+	</script>
+
+	<script>
+		function myFunction() {
+
+
+		var selectbox = document.getElementById("demo")
+	    var i;
+	    for(i = selectbox.options.length - 1 ; i >= 0 ; i--)
+	    {
+	        selectbox.remove(i);
+	    }
+
+		car_options = {
+			'Audi':['a','b'],
+			'BMW':['c','d'],
+			"Mercedes":['e', 'e', 'e'],
+			"Volvo":['d', 'd', 'd']
+		}
+
+		option_val = document.getElementById("mySelect").value
+
+		for(var i=0; i<=car_options[option_val].length-1; i++){
+			var x = document.getElementById("demo");
+			var option = document.createElement("option");
+			option.text = car_options[option_val][i]
+			x.add(option);
+		}
+	}
+	</script>
+
+</html>

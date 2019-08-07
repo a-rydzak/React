@@ -1,0 +1,17 @@
+/*Begin Carbon Nuetral Setup*/
+*{
+  /*If you set box-sizing: border-box; on an element padding and border are included in the width and height*/
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+a{
+  color:#333;
+  text-decoration:none;
+}
