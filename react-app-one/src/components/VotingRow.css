@@ -1,0 +1,36 @@
+
+.votingCtn{
+    width:350px;
+    margin: 0 auto;
+    border:solid;
+    border-style:black;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.votingRow{
+    display: block;
+    margin: 0 auto;
+    border:solid;
+    border-style:black;
+    text-align: center;
+    width:250px;
+    margin-top:3px;
+}
+.votingElm{
+    display: inline-block;
+    
+    margin-left: 10px;
+    margin-right:10px;
+    height:40px;
+    width:40px;
+}
+
+.votingBtn{
+    display: inline-block;
+    margin-left: 60px;
+    margin-right:0px;
+    height:35px;
+    width:40px;
+
+}
