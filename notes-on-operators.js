@@ -19,3 +19,9 @@ function sorter(...args) {
 }
 
 console.log(sorter(1, 2, 3, 4, 5));
+
+const filterMe = (...args) => {
+  args.filter(el => el > 5);
+};
+
+console.log(filterMe(1, 2, 3, 4, 22));
