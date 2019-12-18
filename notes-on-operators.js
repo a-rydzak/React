@@ -2,6 +2,7 @@ const person = { name: 'Andrew' };
 const newPerson = { ...person, age: '???' };
 console.log(newPerson);
 
+// --------------------------------------Start of nifty arrty operators
 // case 1
 let x = [1, 2, 3];
 let y = [...x];
@@ -21,7 +22,13 @@ function sorter(...args) {
 console.log(sorter(1, 2, 3, 4, 5));
 
 const filterMe = (...args) => {
-  args.filter(el => el > 5);
+  return args.filter(el => el > 5);
 };
 
 console.log(filterMe(1, 2, 3, 4, 22));
+
+// destructure
+
+[a, b] = [1, 2, 3, 4, 5];
+
+console.log(`From [a, b] = [1, 2, 3, 4, 5]; A is ${a} amnd b is ${b}`);
