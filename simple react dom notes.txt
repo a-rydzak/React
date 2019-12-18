@@ -1,5 +1,5 @@
-React 16.12
-React-DOM 16.11
+//React 16.12, ui state for dynamic UI and Doms
+//React-DOM 16.11
 //---------------------------------HTML
 <body>
   <div id="main"></div>
