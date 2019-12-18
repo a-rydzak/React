@@ -32,3 +32,11 @@ console.log(filterMe(1, 2, 3, 4, 22));
 [a, b] = [1, 2, 3, 4, 5];
 
 console.log(`From [a, b] = [1, 2, 3, 4, 5]; A is ${a} amnd b is ${b}`);
+
+var numbers = [1, 2, 3, 4, 5];
+
+const doubleMe = numbers.map(item => item * item);
+
+console.log(doubleMe);
+
+console.log(numbers);
