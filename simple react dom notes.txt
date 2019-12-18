@@ -1,0 +1,39 @@
+React 16.12
+React-DOM 16.11
+//---------------------------------HTML
+<body>
+  <div id="main"></div>
+</body>
+
+//---------------------------------css
+body{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+
+.person{
+  margin-top:2rem;
+  border:1px solid #eee;
+  boxshadow:0 2px 2px #ccc;
+  width:200px;
+  padding:20px;
+}
+
+//---------------------------------JS
+function Person(props){
+  return(
+     <div className = "person">
+      <h1>{props.name}</h1>
+      <p>This is your statment: {props.statment} </p>
+    </div>
+  );
+}
+var app =(
+  <div>
+  <Person name="Andrew" statment="Hello There!"/>
+   <Person name="Bill" statment="Hello There!"/>
+  </div>
+  
+)
+ReactDOM.render(app, document.querySelector("#main"));
