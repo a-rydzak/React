@@ -10,11 +10,20 @@ class App extends Component {
     persons: [{ name: 'Andrew' }, { name: 'Joe' }, { name: 'Billy' }]
   };
 
-  switchNameHandler = () => {
-    const firstName = this.state.persons[0].name;
+  switchNameHandler = newName => {
     this.setState({
       persons: [
-        { name: this.state.persons[1].name },
+        { name: newName },
+        { name: this.state.persons[2].name },
+        { name: this.state.persons[0].name }
+      ]
+    });
+  };
+
+  nameChangedHandler = event => {
+    this.setState({
+      persons: [
+        { name: event.target.value },
         { name: this.state.persons[2].name },
         { name: this.state.persons[0].name }
       ]
@@ -25,13 +34,28 @@ class App extends Component {
     return (
       <div className='App'>
         <Header />
-        <button onClick={this.switchNameHandler}>Click Me</button>
+        <button onClick={() => this.switchNameHandler('Andrew')}>
+          Click Me
+        </button>
 
-        <Person name={this.state.persons[0].name} />
-        <Person name={this.state.persons[1].name}>
+        <Person
+          name={this.state.persons[0].name}
+          // -This is preferd over  () => this.switchNameHandler('Andrew') as it is less effecinet
+          click={this.switchNameHandler.bind(this, 'billy')}
+          changed={this.nameChangedHandler}
+        />
+
+        <Person
+          name={this.state.persons[1].name}
+          click={this.switchNameHandler.bind(this, 'joel')}
+        >
           I am being passed as a child
         </Person>
-        <Person name={this.state.persons[2].name} />
+
+        <Person
+          name={this.state.persons[2].name}
+          click={this.switchNameHandler.bind(this, 'sue')}
+        />
       </div>
     );
   }

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
-//--------This is a presentation component/ dumb component
+//--------This is a presentation component/ dumb component, ideally you have more of these
 const person = props => {
   return (
     <div>
       <p>
         I am a {props.name} and my age is {Math.floor(100 * Math.random())} tag?
       </p>
+      <button onClick={props.click}> sub</button>
+      <input type='text' onChange={props.changed} />
       <p>{props.children}</p>
     </div>
   );
