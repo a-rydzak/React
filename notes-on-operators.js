@@ -135,26 +135,27 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 // getaller();
 //--------------------------------------------------Non blocking with callbacks and promises
-function reader(textFile, cb) {
-  for (let x = 0; x < 100000 * 3; x++) {
-    continue;
-  }
-  cb(false, 'all your data');
-}
-
-function getter(cb) {
-  promise = new Promise((resolve, reject) => {
-    reader('input.txt', function(err, data) {
-      if (err) return console.error(err);
-      resolve(cb(data));
-    });
-  });
-  return promise;
-}
 
 getter(bb8 => bb8).then(item => {
   console.log(item);
   console.log('Webpage Loaded with data');
 });
 
-console.log(1);
+console.log('Non Blocking');
+
+function getter(cb) {
+  promise = new Promise((resolve, reject) => {
+    reader('input.txt', function(err, data) {
+      if (err) return reject(err);
+      resolve(cb(data));
+    });
+  });
+  return promise;
+}
+
+function reader(textFile, cb) {
+  for (let x = 0; x < 100000 * 3; x++) {
+    continue;
+  }
+  cb(false, 'all your data is here for the webpage');
+}
