@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+//--------This is a presentation component/ dumb component
 const person = props => {
   return (
     <div>
