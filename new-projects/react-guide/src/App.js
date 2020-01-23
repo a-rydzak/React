@@ -44,8 +44,15 @@ class App extends Component {
           click={this.switchNameHandler.bind(this, 'billy')}
           changed={this.nameChangedHandler}
         />
-
+        
         <Person
+          name={this.state.persons[1].name}
+          // -This is preferd over  () => this.switchNameHandler('Andrew') as it is less effecinet
+          click={() => this.switchNameHandler('Susan')}
+          changed={this.nameChangedHandler}
+        />
+
+        {/* <Person
           name={this.state.persons[1].name}
           click={this.switchNameHandler.bind(this, 'joel')}
         >
@@ -55,7 +62,7 @@ class App extends Component {
         <Person
           name={this.state.persons[2].name}
           click={this.switchNameHandler.bind(this, 'sue')}
-        />
+        /> */}
       </div>
     );
   }
