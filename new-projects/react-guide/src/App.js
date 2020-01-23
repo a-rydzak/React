@@ -1,102 +1,86 @@
 import React, { Component } from 'react';
-import Header from './test-components/Header';
-import Person from './test-components/Person';
 import './App.css';
+import Person from './test-components/Person';
 
 class App extends Component {
-  // longic here
-  //State is a reserved word
   state = {
-    persons: [{ name: 'Andrew' }, { name: 'Joe' }, { name: 'Billy' }],
-    showPersons: true
-  };
+    persons: [
+      { id: 'A', name: 'Andrew', age: 28 },
+      { id: 'B', name: 'Lizzy', age: 29 },
+      { id: 'C', name: 'Catniss', age: 26 }
+    ],
+    otherState: 'some other value',
+    showPersons: false
+  }
 
-  switchNameHandler = newName => {
-    this.setState({
-      persons: [
-        { name: newName },
-        { name: this.state.persons[2].name },
-        { name: this.state.persons[0].name }
-      ]
+  nameChangedHandler = ( event, id ) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
     });
-  };
 
-  nameChangedHandler = event => {
-    this.setState({
-      persons: [
-        { name: event.target.value },
-        { name: this.state.persons[2].name },
-        { name: this.state.persons[0].name }
-      ]
-    });
-  };
+    const person = {
+      ...this.state.persons[personIndex]
+    };
 
-  // whenever a component gets rendered all this occurs
-  render() {
+    // const person = Object.assign({}, this.state.persons[personIndex]);
 
-    let persons = null
+    person.name = event.target.value;
 
-    if(this.state.showPersons){
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
+    this.setState( {persons: persons} );
+  }
+
+  deletePersonHandler = (personIndex) => {
+    // const persons = this.state.persons.slice();
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({persons: persons});
+  }
+
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState( { showPersons: !doesShow } );
+  }
+
+  render () {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
+    let persons = null;
+
+    if ( this.state.showPersons ) {
       persons = (
         <div>
-        <Person
-          name={this.state.persons[0].name}
-          // -This is preferd over  () => this.switchNameHandler('Andrew') as it is less effecinet
-          click={this.switchNameHandler.bind(this, 'billy')}
-          changed={this.nameChangedHandler}
-        />
-        
-        <Person
-          name={this.state.persons[1].name}
-          // -This is preferd over  () => this.switchNameHandler('Andrew') as it is less effecinet
-          click={() => this.switchNameHandler('Susan')}
-          changed={this.nameChangedHandler}
-        />
-      </div> 
-      )
-    }
-
-    const styles = {
-      backgroundColor: 'green',
-      border: '1px solid blue',
-      cursor: 'pointer'
-    }
-
-    const togglePersonHandler =() =>{
-      this.state.showPersons ? this.setState({showPersons: false}): this.setState({showPersons: true})
+          {this.state.persons.map((person, index) => {
+            return <Person
+              click={() => this.deletePersonHandler(index)}
+              name={person.name} 
+              age={person.age}
+              key={person.id}
+              changed={(event) => this.nameChangedHandler(event, person.id)} />
+          })}
+        </div>
+      );
     }
 
     return (
-      <div className='App'>
-        {/* <Header /> */}
-        {/* inline styling here */}
-        {/* <button style={styles} onClick={() => this.switchNameHandler('Andrew')}> */}
-        <button style={styles} onClick={togglePersonHandler}>
-          Toggle Persons
-       
-        </button>
+      <div className="App">
+        <h1>Hi, I'm a React App</h1>
+        <p>This is really working!</p>
+        <button
+          style={style}
+          onClick={this.togglePersonsHandler}>Toggle Persons</button>
         {persons}
-        
-        {/* Ternary operation update this would replace {persons} logic check*/}
-        {/* { this.state.showPersons ? 
-          <div>
-            <Person
-              name={this.state.persons[0].name}
-              // -This is preferd over  () => this.switchNameHandler('Andrew') as it is less effecinet
-              click={this.switchNameHandler.bind(this, 'billy')}
-              changed={this.nameChangedHandler}
-            />
-            
-            <Person
-              name={this.state.persons[1].name}
-              // -This is preferd over  () => this.switchNameHandler('Andrew') as it is less effecinet
-              click={() => this.switchNameHandler('Susan')}
-              changed={this.nameChangedHandler}
-            />
-          </div> : null
-        } */}
       </div>
     );
+    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 

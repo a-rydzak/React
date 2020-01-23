@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
-// this css is not scoped to this file, it just lets webpack know it exists
+import React from 'react';
+
 import './person.css';
 
-//--------This is a presentation component/ dumb component, ideally you have more of these
-const person = props => {
-  return (
-    <div className = "Person">
-      <p>
-        I am a {props.name} and my age is {Math.floor(100 * Math.random())} tag?
-      </p>
-      <button onClick={props.click}> sub</button>
-      <input type='text' onChange={props.changed} />
-      <p>{props.children}</p>
-    </div>
-  );
+const person = ( props ) => {
+    return (
+        <div className="Person">
+            <p onClick={props.click}>I'm {props.name} and I am {props.age} years old!</p>
+            <p>{props.children}</p>
+            <input type="text" onChange={props.changed} value={props.name} />
+        </div>
+    )
 };
+
+export default person;
 // class Person extends Component {
 //   render() {
 //     return (
@@ -33,4 +31,3 @@ const person = props => {
 //   }
 // }
 
-export default person;
