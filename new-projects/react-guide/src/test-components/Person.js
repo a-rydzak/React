@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+// this css is not scoped to this file, it just lets webpack know it exists
+import './person.css';
 
 //--------This is a presentation component/ dumb component, ideally you have more of these
 const person = props => {
   return (
-    <div>
+    <div className = "Person">
       <p>
         I am a {props.name} and my age is {Math.floor(100 * Math.random())} tag?
       </p>
