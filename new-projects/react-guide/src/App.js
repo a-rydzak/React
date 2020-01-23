@@ -45,12 +45,21 @@ class App extends Component {
   }
 
   render () {
+    let toggle = 'Toggle Persons'
+    let color = 'white'  
+
+    if(this.state.persons.length ==0){
+      color = 'red'
+      toggle = 'No More Persons to Display'
+    }
+
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: color,
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      
     };
 
     let persons = null;
@@ -60,7 +69,7 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return <Person
-              click={() => this.deletePersonHandler(index)}
+              delete={this.deletePersonHandler}
               name={person.name} 
               age={person.age}
               key={person.id}
@@ -76,7 +85,7 @@ class App extends Component {
         <p>This is really working!</p>
         <button
           style={style}
-          onClick={this.togglePersonsHandler}>Toggle Persons</button>
+    onClick={this.togglePersonsHandler}>{toggle}</button>
         {persons}
       </div>
     );
