@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {styleHeader ,style} from './app-styles';
 import './App.css';
 import Person from './test-components/Person';
 
@@ -79,8 +80,9 @@ class App extends Component {
       );
     }
 
+
     return (
-      <div className="App">
+      <div className="App" style={styleHeader}>
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!</p>
         <button

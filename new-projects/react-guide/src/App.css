@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,10 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+@media (max-width: 500px){
+    .Person{
+      background-color: blueviolet;
+    } 
 }
