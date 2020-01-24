@@ -17,18 +17,6 @@ class Header extends Component {
           </ul>
         </header>
       </div>
-
-      // React.createElement('div', null, 'h1', 'I am not a React app...')
-
-      // React.createElement(
-      //   'div',
-      //   null,
-      //   React.createElement(
-      //     'h1',
-      //     { className: Header },
-      //     'I am not a React app...'
-      //   )
-      // )
     );
   }
 }

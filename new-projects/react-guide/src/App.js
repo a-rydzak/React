@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {styleHeader ,style} from './app-styles';
-import './App.css';
+import {styleHeader ,style} from './app-css';
+
 import Person from './test-components/Person';
 
 class App extends Component {
