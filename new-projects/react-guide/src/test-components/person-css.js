@@ -13,4 +13,4 @@ const StyledDiv = styled.div`
         background-color: blueviolet;
     }
 `
-export default StyledDiv ;
+export default StyledDiv;

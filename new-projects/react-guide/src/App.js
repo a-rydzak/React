@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {styleHeader ,style} from './app-css';
-
+import {styleHeader,StyledButton} from './app-css';
 import Person from './test-components/Person';
 
 class App extends Component {
@@ -47,21 +46,13 @@ class App extends Component {
 
   render () {
     let toggle = 'Toggle Persons'
-    let color = 'white'  
+    let color = 'white'
 
-    if(this.state.persons.length ==0){
+    if(this.state.persons.length === 0){
       color = 'red'
       toggle = 'No More Persons to Display'
     }
 
-    const style = {
-      backgroundColor: color,
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      
-    };
 
     let persons = null;
 
@@ -85,9 +76,8 @@ class App extends Component {
       <div className="App" style={styleHeader}>
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!</p>
-        <button
-          style={style}
-    onClick={this.togglePersonsHandler}>{toggle}</button>
+        <StyledButton color = {color}
+    onClick={this.togglePersonsHandler}>{toggle}</StyledButton>
         {persons}
       </div>
     );
