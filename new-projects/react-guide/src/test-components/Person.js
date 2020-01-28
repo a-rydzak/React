@@ -1,6 +1,8 @@
 import React from 'react';
 import './person-css.js';
 import StyledDiv from './person-css';
+
+//  this is an example of a funtional component where state is not used
 const person = ( props ) => {
 
     /*

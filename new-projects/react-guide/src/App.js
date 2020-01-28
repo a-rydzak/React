@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styles from './app.module.css';
 import {styleHeader,StyledButton} from './app-css';
-import Person from './test-components/Person';
+import Persons from './test-components/Persons';
 import ErrorHandler from './Error-Components/ErrorHandler';
 
 class App extends Component {
@@ -60,30 +60,17 @@ class App extends Component {
     let persons = null;
 
     if ( this.state.showPersons ) {
-      persons = (
-        <div>
-          
-          {this.state.persons.map((person, index) => {
-              return (<ErrorHandler key = {person.id}>
-                        <Person
-                        delete={this.deletePersonHandler}
-                        name={person.name} 
-                        age={person.age}
-                        changed={(event) => this.nameChangedHandler(event, person.id)} /> 
-                    </ErrorHandler>)
-          })}
-          
-        </div>
-      );
+      persons = <Persons people={this.state.persons} 
+                         delete={this.deletePersonHandler}
+                         changed={this.nameChangedHandler}/>
     }
-
 
     return (
       <div className="App" style={styleHeader}>
         <h1>Hi, I'm a React App</h1>
         <p>This is really working!</p>
         <StyledButton color = {color}
-    onClick={this.togglePersonsHandler}>{toggle}</StyledButton>
+        onClick={this.togglePersonsHandler}>{toggle}</StyledButton>
         {persons}
 
         {/* <button className={`${styles.button} ${styles.button}`}>Test Button</button> */}
