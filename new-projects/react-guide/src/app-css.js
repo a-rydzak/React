@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const styleHeader =  {
     width: '80%',
     margin:'auto',
-    'text-align': 'center'
+    textAlign: 'center'
   }
 
 const StyledButton = styled.button`
