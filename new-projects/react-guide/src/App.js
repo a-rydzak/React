@@ -64,13 +64,13 @@ class App extends Component {
         <div>
           
           {this.state.persons.map((person, index) => {
-              return <ErrorHandler key = {person.id}>
+              return (<ErrorHandler key = {person.id}>
                         <Person
                         delete={this.deletePersonHandler}
                         name={person.name} 
                         age={person.age}
                         changed={(event) => this.nameChangedHandler(event, person.id)} /> 
-                    </ErrorHandler>
+                    </ErrorHandler>)
           })}
           
         </div>
