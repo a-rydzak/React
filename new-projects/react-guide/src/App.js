@@ -1,8 +1,9 @@
 // look into https://css-tricks.com/css-modules-part-1-need/
 import React, { Component } from 'react';
-import styles from './app.module.css'
+import styles from './app.module.css';
 import {styleHeader,StyledButton} from './app-css';
 import Person from './test-components/Person';
+import ErrorHandler from './Error-Components/ErrorHandler';
 
 class App extends Component {
   state = {
@@ -61,14 +62,17 @@ class App extends Component {
     if ( this.state.showPersons ) {
       persons = (
         <div>
+          
           {this.state.persons.map((person, index) => {
-            return <Person
-              delete={this.deletePersonHandler}
-              name={person.name} 
-              age={person.age}
-              key={person.id}
-              changed={(event) => this.nameChangedHandler(event, person.id)} />
+              return <ErrorHandler key = {person.id}>
+                        <Person
+                        delete={this.deletePersonHandler}
+                        name={person.name} 
+                        age={person.age}
+                        changed={(event) => this.nameChangedHandler(event, person.id)} /> 
+                    </ErrorHandler>
           })}
+          
         </div>
       );
     }

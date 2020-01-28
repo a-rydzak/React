@@ -3,12 +3,12 @@ import './person-css.js';
 import StyledDiv from './person-css';
 const person = ( props ) => {
 
-    /*
-        // This is how you would throw some errors
-        if(Math.random() > .7){
-            throw new Error('Random Error Occuring')
-        }
-    */
+    
+    // This is how you would throw some errors
+    if(Math.random() > .2){
+        throw new Error('Random Error Occuring')
+    }
+   
  
     return (
         <StyledDiv>
