@@ -22,11 +22,17 @@ class App extends Component {
     showPersons: false
   }
 
-  // static method to sync state
+  // rarely used, no http requests -side effects
+  // static method to sync state, here we update based on props that affect state
   static getDerivedStateFromProps(props, state){
     return state
   }
 
+  // CANCEL updating process for performace - No side effects here
+  shouldComponentUpdate(nextProps, nextState){
+
+  }
+  // rarely used
   //  used for preparing correctly but used by getDerivedFromProps
   componentWillMount(){
 
@@ -38,6 +44,9 @@ class App extends Component {
 
 
   // react decides if real dom needs to be changed after virtual dom is updated
+  // after render we render the child components
+  // after render we can use getSnapshotBeforeUpdate to get things like scrolling position of the user
+  // component did update next can now be used to make http request, can cause infinite loops
   render () {
     let toggle = 'Toggle Persons'
     let color = 'white'
