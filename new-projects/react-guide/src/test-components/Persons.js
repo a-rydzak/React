@@ -1,6 +1,7 @@
 import React from 'react';
 import {Component} from 'react';
 import Person from './Person';
+import ErrorHandler from '../Error-Components/ErrorHandler';
 
 class Persons extends Component{
 
