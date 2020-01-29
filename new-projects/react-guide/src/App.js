@@ -30,17 +30,13 @@ class App extends Component {
 
   // CANCEL updating process for performace - No side effects here
   shouldComponentUpdate(nextProps, nextState){
-
+    return true
   }
   // rarely used
   //  used for preparing correctly but used by getDerivedFromProps
-  componentWillMount(){
+  //componentWillMount(){}
 
-  }
-
-  componentDidMount(){
-    console.log('Component Did Mount')
-  }
+  componentDidMount(){console.log('Component Did Mount')}
 
 
   // react decides if real dom needs to be changed after virtual dom is updated
