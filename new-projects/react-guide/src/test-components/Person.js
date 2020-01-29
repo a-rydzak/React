@@ -5,22 +5,35 @@ import StyledDiv from './person-css';
 
 //  this is an example of a funtional component where state is not used
 class Person extends Component{
+
     static getDericedStateFromProps(props, state){
-        return state
+        console.log('getDericedStateFromProps')
+        return state;
     }
 
     shouldComponentUpdate(nextProps, nextState){
-        return true
+        //this only happens on change 
+        
+        if(nextProps.name != this.props.name){
+            console.log('shouldComponentUpdate')
+            return true;
+        }
+        return false;
+            
     }
 
     getSnapshotBeforeUpdate(prevProps,prevState){
-
+        console.log('getSnapshotBeforeUpdate')
+        return {name:this.props.name};
     }
 
-    componentDidUpdate(){
-
+    componentDidUpdate(prevProps, prevState, snapshot){
+        console.log(snapshot)
+        // a package from getSnapshotBeforeUpdate
+        console.log('componentDidUpdate')
     }
-    
+
+    componentDidMount(){console.log('Component Did Mount')}
     /*
         // This is how you would throw some errors
         if(Math.random() > .2){

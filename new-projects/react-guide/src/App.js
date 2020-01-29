@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import styles from './app.module.css';
 import {styleHeader,StyledButton} from './app-css';
 import Persons from './test-components/Persons';
-import ErrorHandler from './Error-Components/ErrorHandler';
 
 class App extends Component {
   constructor(props){
@@ -35,8 +34,13 @@ class App extends Component {
   // rarely used
   //  used for preparing correctly but used by getDerivedFromProps
   //componentWillMount(){}
+  componentDidMount(){}
 
-  componentDidMount(){console.log('Component Did Mount')}
+  shouldComponentUpdate(){
+    return true
+  }
+
+  componentDidUpdate(){}
 
 
   // react decides if real dom needs to be changed after virtual dom is updated
