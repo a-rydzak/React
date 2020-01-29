@@ -18,9 +18,10 @@ class Person extends Component{
     }
 
     componentDidUpdate(){
-        
+
     }
     
+    /*
         // This is how you would throw some errors
         if(Math.random() > .2){
             throw new Error('Random Error Occuring')
