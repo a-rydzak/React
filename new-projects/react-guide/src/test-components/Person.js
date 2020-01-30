@@ -13,10 +13,9 @@ class Person extends Component{
         return state;
     }
 
-    // UNCOMMONLY USED
+    // UNCOMMONLY USED but very useful!
     shouldComponentUpdate(nextProps, nextState){
         //this only happens on change 
-        
         if(nextProps.name != this.props.name){
             console.log('shouldComponentUpdate')
             return true;
@@ -66,6 +65,8 @@ class Person extends Component{
                 <input type="text" onChange={this.props.changed} value={this.props.name} />
             </StyledDiv>
         )
+
+        //  can lso return [<p></p><p></p>] without using a top level <div></div>
     }
 };
 

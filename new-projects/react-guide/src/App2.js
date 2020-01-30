@@ -16,10 +16,14 @@ const App2 = (props) => {
 
   useEffect(() =>{ 
     // runs everytime a component is rendered for componont did mount / update
-    setTimeout(()=>{alert('saving data to cloud!')} ,1000)
+    const timer = setTimeout(()=>{alert('saving data to cloud!')} ,1000)
+    return () =>{ clearTimeout(timer)}
   }, [personState,nonPersonState]) //this bit at the end ensures this occurs only when personState changes, use [] for it to only run once
       // [a,b] acts as an or
 
+  useEffect(() =>{ 
+    return () => {console.log('Clean Up in Effect')}
+  })
   const switchNameHandler = () => {
     //-----This replaces the old state completely does not just update...nonPersons Will Disappear
     setPersonState({

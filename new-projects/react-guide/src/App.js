@@ -1,5 +1,5 @@
 // look into https://css-tricks.com/css-modules-part-1-need/
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styles from './app.module.css';
 import {styleHeader,StyledButton} from './app-css';
 import Persons from './test-components/Persons';
@@ -34,7 +34,9 @@ class App extends Component {
   // rarely used
   //  used for preparing correctly but used by getDerivedFromProps
   //componentWillMount(){}
-  componentDidMount(){}
+  componentDidMount(){
+    
+  }
 
   shouldComponentUpdate(){
     return true
@@ -66,6 +68,7 @@ class App extends Component {
     }
 
     return (
+      // <Fragment> you can use fragment instead of a div to wrap your jsx
       <div className="App" style={styleHeader}>
         <h1>Hi, I'm a React App: {this.props.appTitle}</h1>
         <p>This is really working!</p>
@@ -75,7 +78,9 @@ class App extends Component {
 
         {/* <button className={`${styles.button} ${styles.button}`}>Test Button</button> */}
       </div>
-    );
+
+      // </Fragment>    
+       );
   }
 
   // start of all methods
