@@ -6,11 +6,14 @@ import StyledDiv from './person-css';
 //  this is an example of a funtional component where state is not used
 class Person extends Component{
 
+    // http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+    // UNCOMMONLY USED
     static getDericedStateFromProps(props, state){
         console.log('getDericedStateFromProps')
         return state;
     }
 
+    // UNCOMMONLY USED
     shouldComponentUpdate(nextProps, nextState){
         //this only happens on change 
         
@@ -21,25 +24,39 @@ class Person extends Component{
         return false;
             
     }
-
+    //This will be a safer alternative to the previous lifecycle method componentWillUpdate()
     getSnapshotBeforeUpdate(prevProps,prevState){
         console.log('getSnapshotBeforeUpdate')
         return {name:this.props.name};
     }
 
+    //  componentDidUpdate() method is updating the DOM in response to prop or state changes.
     componentDidUpdate(prevProps, prevState, snapshot){
         console.log(snapshot)
         // a package from getSnapshotBeforeUpdate
         console.log('componentDidUpdate')
-    }
 
+         //Typical usage, don't forget to compare the props
+        // if (this.props.userName !== prevProps.userName) {
+        //     this.fetchData(this.props.userName);
+        // }
+    }
+    
+    // called as soon as the component is mounted and ready. This is a good place to initiate API calls, if you need to load data from a remote endpoint.
+    // allows the use of setState() !! The best practice is to ensure that your states are assigned in the constructor(). 
     componentDidMount(){console.log('Component Did Mount')}
+
     /*
         // This is how you would throw some errors
         if(Math.random() > .2){
             throw new Error('Random Error Occuring')
         }
     */
+    //  called just before the component is unmounted and destroyed. If there are any cleanup actions that you would need to do, this would be the right spot
+   componentWillUnmount() { //You cannot modify the component state
+    window.removeEventListener('resize', this.resizeListener)
+   }
+   //A render() method has to be pure with no side-effects, you can not setState() within a render()
     render(){
         return (
             <StyledDiv>
