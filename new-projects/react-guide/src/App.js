@@ -19,7 +19,8 @@ class App extends Component {
       { id: 'C', name: 'Catniss', age: 26 }
     ],
     otherState: 'some other value',
-    showPersons: false
+    showPersons: false,
+    changeCounter: 0
   }
 
   // rarely used, no http requests -side effects
@@ -73,6 +74,7 @@ class App extends Component {
       <div className="App" style={styleHeader}>
         <h1>Hi, I'm a React App: {this.props.appTitle}</h1>
         <p>This is really working!</p>
+        <p>Number of Edits: {this.state.changeCounter}</p>
         <StyledButton color = {color}
         onClick={this.togglePersonsHandler}>{toggle}</StyledButton>
         {persons}
@@ -101,9 +103,20 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
+    // set state is scheduled state update, not guarenteed to happen immediately
+    // when doing things that don't depend on the old state we just pass the object
     this.setState( {persons: persons} );
-  }
 
+    // For a counter we could use this to add 1 to the prev state
+    this.setState( (prevState, currProps)=>{
+          return {
+                  persons: persons,
+                  changeCounter: prevState.changeCounter+1
+                }
+        } 
+    );
+  
+  }
   deletePersonHandler = (personIndex) => {
     // const persons = this.state.persons.slice();
     const persons = [...this.state.persons];

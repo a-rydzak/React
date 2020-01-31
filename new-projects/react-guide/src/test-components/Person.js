@@ -2,7 +2,7 @@ import React from 'react';
 import {Component} from 'react';
 import './person-css.js';
 import StyledDiv from './person-css';
-
+import PropTypes from 'prop-types';
 //  this is an example of a funtional component where state is not used
 class Person extends Component{
 
@@ -68,6 +68,13 @@ class Person extends Component{
 
         //  can lso return [<p></p><p></p>] without using a top level <div></div>
     }
+};
+
+Person.propTypes = {
+    click: PropTypes.func,
+    name:  PropTypes.string,
+    age: PropTypes.number,
+    changed: PropTypes.func
 };
 
 export default Person;
