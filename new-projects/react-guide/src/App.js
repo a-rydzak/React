@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import styles from './app.module.css';
 import {styleHeader,StyledButton} from './app-css';
 import Persons from './test-components/Persons';
+import withClass from './hoc/withClass';
 
 class App extends Component {
   constructor(props){
@@ -116,4 +117,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withClass(App, App.name);
