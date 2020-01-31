@@ -5,6 +5,7 @@ import {styleHeader,StyledButton} from './app-css';
 import Persons from './test-components/Persons';
 import withClass from './hoc/withClass';
 
+
 class App extends Component {
   constructor(props){
     // super props only needed if you use constructor 
@@ -20,7 +21,8 @@ class App extends Component {
     ],
     otherState: 'some other value',
     showPersons: false,
-    changeCounter: 0
+    changeCounter: 0,
+    authenticated:false
   }
 
   // rarely used, no http requests -side effects
@@ -51,6 +53,9 @@ class App extends Component {
   // after render we render the child components
   // after render we can use getSnapshotBeforeUpdate to get things like scrolling position of the user
   // component did update next can now be used to make http request, can cause infinite loops
+  loginHandler(){
+
+  }
   render () {
     let toggle = 'Toggle Persons'
     let color = 'white'
@@ -71,16 +76,18 @@ class App extends Component {
 
     return (
       // <Fragment> you can use fragment instead of a div to wrap your jsx
-      <div className="App" style={styleHeader}>
-        <h1>Hi, I'm a React App: {this.props.appTitle}</h1>
-        <p>This is really working!</p>
-        <p>Number of Edits: {this.state.changeCounter}</p>
-        <StyledButton color = {color}
-        onClick={this.togglePersonsHandler}>{toggle}</StyledButton>
-        {persons}
+      
+  
+        <div className="App" style={styleHeader}>
+          <h1>Hi, I'm a React App: {this.props.appTitle}</h1>
+          <p>This is really working!</p>
+          <p>Number of Edits: {this.state.changeCounter}</p>
+          <StyledButton color = {color}
+          onClick={this.togglePersonsHandler}>{toggle}</StyledButton>
+          {persons}
 
-        {/* <button className={`${styles.button} ${styles.button}`}>Test Button</button> */}
-      </div>
+          {/* <button className={`${styles.button} ${styles.button}`}>Test Button</button> */}
+        </div>
 
       // </Fragment>    
        );
