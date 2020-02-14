@@ -8,7 +8,9 @@ class App extends Component {
     return (
       <div>
         <Layout>
+          <div style={{marginTop:'100px'}}>
           <BurgerBuilder />
+          </div>
         </Layout>
       </div>
     );
