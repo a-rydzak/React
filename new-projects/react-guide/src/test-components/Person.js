@@ -56,6 +56,45 @@ class Person extends Component{
         
         console.log(this.context.auththenticated)
         console.log('Component Did Mount')
+
+        /*  This is a get request with fetch
+        fetch("https://api.example.com/items")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                this.setState({
+                    isLoaded: true,
+                    items: result.items
+                });
+                },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+                }
+            )
+
+
+
+            ----post 
+            (async () => {
+                const rawResponse = await fetch('https://httpbin.org/post', {
+                    method: 'POST',
+                    headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({a: 1, b: 'Textual content'})
+                });
+                const content = await rawResponse.json();
+
+                console.log(content);
+                })();
+            */
     }
 
     /*
